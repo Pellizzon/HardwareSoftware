@@ -3,4 +3,19 @@
  * presente no arquivo ex5.o
  * 
  * Chame sua função de ex5_solucao */
- 
+
+long ex5_solucao(long a, long b)
+{
+    long x = 0;
+    long q = 0;
+    while (x < a)
+    {
+        long resto = x % b;
+        if (resto == 0)
+        {
+            q += x;
+        }
+        x++;
+    }
+    return q;
+}

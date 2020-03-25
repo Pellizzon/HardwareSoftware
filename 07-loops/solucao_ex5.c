@@ -3,7 +3,6 @@
  * presente no arquivo ex5.o
  * 
  * Chame sua função de ex5_solucao */
-#include <stdio.h>
 long ex5_solucao(long a, long b)
 {
     long q = 0;

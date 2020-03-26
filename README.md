@@ -42,7 +42,7 @@ Para entregar seus arquivos crie um repositório privado no github e convide o p
 
 Toda vez que terminar um exercício você poderá enviá-los para o repositório privado usando o comando abaixo
 
-> `$ git push master respostas:master` 
+> `$ git push respostas master` 
 
 ### Passo 3 - trabalhando nas próximas aulas
 
@@ -52,7 +52,7 @@ Sempre que novos exercícios forem disponibilizados você pode fazer
 
 para baixá-los em seu repositório local. Após fazer um commit com suas respostas pode executar 
 
-> `$ git push master respostas:master` 
+> `$ git push respostas master` 
 
 para enviá-los para o repositório privado.
   

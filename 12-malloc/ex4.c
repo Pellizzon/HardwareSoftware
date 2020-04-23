@@ -3,12 +3,26 @@
 #include <string.h>
 #include "macros_correcoes.h"
 
-char *mystrcpy(char *stroriginal) {
-    return NULL;
+char *mystrcpy(char *stroriginal)
+{
+    int n;
+    for (n = 0; stroriginal[n]; n++)
+        ;
+    //por causa o "\0"
+    n++;
+    char *strcopia = malloc(n * sizeof(char));
+
+    for (int i = 0; i < n; i++)
+    {
+        strcopia[i] = stroriginal[i];
+    }
+
+    return strcopia;
 }
 
-int main(int argc, char *argv[]) {
-    char *strcopia;
+int main(int argc, char *argv[])
+{
+    //char *strcopia;
 
     char *s1 = "AAAAA";
     char *t1 = mystrcpy(s1);
@@ -37,5 +51,5 @@ int main(int argc, char *argv[]) {
 
     printSummary
 
-    return 0;
+        return 0;
 }

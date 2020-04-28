@@ -4,13 +4,15 @@
 
 // Precisamos de acesso direto aos campos para fazer os testes
 // Isto normalmente não vai no código.
-typedef struct _vec_int {
+typedef struct _vec_int
+{
     int *data;
     int size;
     int capacity;
 } vec_int;
 
-int test_creation_destroy() {
+int test_creation_destroy()
+{
     vec_int *vec = vec_int_create();
     test_assert(vec != NULL, "create retornou NULL!");
 
@@ -20,13 +22,14 @@ int test_creation_destroy() {
     return 1;
 }
 
-int test_size_capacity() {
+int test_size_capacity()
+{
     vec_int *vec = vec_int_create();
 
     test_assert(vec->capacity == 2, "Capacidade começa diferente de 2!");
 
     test_assert(vec_int_size(vec) == 0, "Tamanho inicial diferente de 0!");
-    
+
     int i;
     test_assert(vec_int_at(vec, 0, &i) == 0, "Retornou 1 em posição inválida!");
 
@@ -34,7 +37,8 @@ int test_size_capacity() {
     return 1;
 }
 
-int test_insert() {
+int test_insert()
+{
     vec_int *vec = vec_int_create();
 
     test_assert(vec_int_insert(vec, -1, 5) == 0, "Retornou 1 em posição inválida!");
@@ -61,17 +65,19 @@ int test_insert() {
     test_assert(vec_int_insert(vec, 0, 2) != 0, "Retornou 0 para inserção no começo!");
     test_assert(vec_int_at(vec, 0, &val) != 0, "Retornou 0 em elemento existente!");
     test_assert(val == 2, "Elemento adicionado diferente de 2!");
-    
-    for (int i = 0; i < vec_int_size(vec); i++) {
+
+    for (int i = 0; i < vec_int_size(vec); i++)
+    {
         test_assert(vec_int_at(vec, i, &val) != 0, "Retornou 0 em elemento existente!");
-        test_assert(val == i+2, "Problema com elemento adicionado!");
+        test_assert(val == i + 2, "Problema com elemento adicionado!");
     }
 
     vec_int_destroy(&vec);
     return 1;
 }
 
-int test_remove() {
+int test_remove()
+{
     vec_int *vec = vec_int_create();
     test_assert(vec != NULL, "create retornou NULL!");
 
@@ -87,9 +93,10 @@ int test_remove() {
     test_assert(vec_int_remove(vec, 2) == 1, "Retornou 0 em remoção válida.");
 
     int val;
-    for (int i = 1; i <= 5; i++) {
-        test_assert(vec_int_at(vec, (i-1), &val) != 0, "Retornou 0 em elemento existente!");
-        test_assert(val == i*10, "Elemento não confere!");
+    for (int i = 1; i <= 5; i++)
+    {
+        test_assert(vec_int_at(vec, (i - 1), &val) != 0, "Retornou 0 em elemento existente!");
+        test_assert(val == i * 10, "Elemento não confere!");
     }
 
     test_assert(vec_int_remove(vec, 5) == 0, "Retornou 1 em remoção inválida.");
@@ -98,18 +105,20 @@ int test_remove() {
     return 1;
 }
 
-
-int test_shrink_grow() {
+int test_shrink_grow()
+{
     vec_int *vec = vec_int_create();
     test_assert(vec != NULL, "create retornou NULL!");
 
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 20; i++)
+    {
         vec_int_insert(vec, 0, 1000);
     }
 
     test_assert(vec->capacity == 32, "Capacidade diferente de 32!");
 
-    for (int i = 0; i < 15; i++) {
+    for (int i = 0; i < 15; i++)
+    {
         vec_int_remove(vec, 0);
     }
 

@@ -14,8 +14,6 @@ Vamos agora usar o comando `man` para ver a documentação das chamadas de siste
 
 **Exercício 2**: Usando como apoio a documentação aberta pelo comando `man`, como saber que um arquivo foi lido até o fim? **Dica**: a seção `RETURN VALUE` pode te ajudar. \vspace{5em}
 
-A função read retorna 0, indicando final do arquivo.
-
 **Exercício 3**: Baseado em sua resposta acima, modifique `exemplo_io1.c` para que ele mostre o arquivo inteiro. Para ficar melhor de visualizar o resultado, faça o `printf` interno mostrar somente o caractere lido.
 
 **Exercício 4**: Vamos agora trabalhar com a chamada `write`. Um exemplo de seu uso está mostrado no arquivo `exemplo_io2.c`. Você deverá criar um programa `copy_file` que lê dois nomes de arquivos usando `scanf` e copia o conteúdo do primeiro para o segundo. Ou seja, você deverá abrir ambos arquivos (cada um terá seu próprio *file descriptor*), ler do primeiro para um buffer e escrever este buffer no segundo.
@@ -52,16 +50,9 @@ O primeiro dígito contém as permissões do usuário dono do arquivo. O segundo
 
 **Exercício 1**: Use `ls -l` na pasta do arquivo criado por `copy_file` (ou por `exemplo_io2`). Onde é possível obter as informações de permissões do arquivo? Qual o usuário e grupo donos do arquivo? As permissões passadas para o `open` foram corretamente colocadas no arquivo? \vspace{5em}
 
-na esquerda desse comando. Tudo meu.
-
 **Exercício 2**: Quais permissões são garantidas pela máscara `640`? É uma boa ideia usá-la? \vspace{5em}
 
-somente o dono do arquivo pode ler e escrever no arquivo. O grupo só pode ler. 
-Dependendo do cenário pode ser uma boa ideia.
-
 **Exercício 3**: Qual máscara usaria se quisesse que um arquivo possa ser modificado somente por seu dono, mas possa ser executado por qualquer usuário do sistema (incluindo o dono do arquivo)? Justifique. \vspace{5em}
-
-Assumindo que o dono só queira escrever e o resto só executar (ninguém lê nada), usaria 0211;
 
 **Exercício 4**: Rode o comando `copy_file` usando `sudo`. Use `ls -l` para listar as informações do arquivo e verifique seu dono e as permissões. Use os comandos `chown` para mudar o dono do arquivo para seu usuário e `chmod` para deixar suas permissões como leitura e escrita para você e somente leitura para o restante.
 

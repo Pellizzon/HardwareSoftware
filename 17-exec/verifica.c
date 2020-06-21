@@ -43,6 +43,6 @@ int main()
             }
         }
     }
-    printf("pragama terminou\n");
+    printf("progama terminou\n");
     return 0;
 }

@@ -11,7 +11,7 @@ struct soma_parcial_args
 };
 
 double soma = 0;
-void *computa_media_varianciasoma_parcial(void *_arg)
+void *soma_parcial(void *_arg)
 {
     struct soma_parcial_args *spa = _arg;
 
